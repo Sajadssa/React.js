@@ -1,0 +1,10 @@
+/* in index.css we totally for website but in app.css we put on some class component and style to these */
+.Container{
+    display: flex;
+    justify-content: space-evenly;
+    height: 80vh;
+    flex-direction: column;
+    align-items:center;
+    width: 100%;
+    background-color: #fff;
+}
