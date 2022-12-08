@@ -6,4 +6,37 @@
     justify-content:space-around ;
     width: 40rem;
     margin: 15px;
+    color:#444;
+}
+/* #a78bfa ,#ede9fe*/
+.button{
+color: #7655db;
+background-color: #fff;
+border-radius: 5PX;
+border: 1px solid #a78bfa;
+padding:5px 10px;
+cursor: pointer;
+outline: none;
+font-size: 12px;
+}
+.inc{
+    background-color:#ede9fe ;
+}
+.dec{
+    background-color: #fecaca;
+    
+}
+
+.value{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ede9fe;
+    border-radius: 50%;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 14px;
+    
 }

@@ -25,7 +25,7 @@ class App extends React.Component  {
     //     { title: "javaScript", price: "80$" ,id:2},
     //  ],
   }
-       count:0
+      //  count:0
   // clickHandler = (newTitle) => {
   //   // console.log("change price");
 
