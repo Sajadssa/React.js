@@ -13,7 +13,7 @@ const HookArray = () => {
     const addedItem = {
       ...item,
       id: item.length,
-      Number: Math.floor(Math.random() * 10),
+      Number: Math.floor(Math.random() * (17-14))+14,
     };
 
     // console.log(addedItem);

@@ -9,59 +9,72 @@ import HookObject from "./component/HookObject";
 import Product from "./component/Product/Product";
 //import app.css file 
 import './App.css';
+import ProductList from "./component/ProductList/ProductList";
+// import ProductList from "./component/Product/ProductList";
  
 //develop component with class 
 // this way have a one method call named render
 // render have a return that consist of codes for make element such as html tags and javascript
-class App extends React.Component {
+class App extends React.Component  {
 //error in map method is:
 //Each child in a list should have a unique "key" 
 //for solve the problem we can use concept key{id}
   state = {
-    products: [
-        { title: "React.js", price: "90$" ,id:1},
-        { title: "javaScript", price: "80$" ,id:2},
-      ],
+    // products: [
+    //     { title: "React.js", price: "90$" ,id:1},
+    //     { title: "javaScript", price: "80$" ,id:2},
+    //  ],
+  }
+       count:0
+  // clickHandler = (newTitle) => {
+  //   // console.log("change price");
 
-  };
+  //   // this.setState({
 
-  clickHandler=()=>(
-    
-      this.setState({
-        products: [
-          { title: "Javascript", price: "110$" },
-          { title: "mongodb", price: "810$" },
-        ],
 
-      })
-    
+  //   //   products: [
+  //   //     { title: "Javascript", price: "110$" },
+  //   //     { title:newTitle, price: "810$" },
+  //   //   ],
 
-  ) 
+  //   // });
+
+
+  // };
+  // countHandler = (id) => {
+  //   // console.log('count clicked', this);
+  //   this.setState({ count: this.state.count + 1 });
+  //   console.log('count clicked', id);
+
+  // };
+
   render() {
     return (
       <div className='Container' id="title">
         <h1>Shopping sajad </h1>
-
-        {this.state.products.map((product) => {
-          return (
-            <Product
-              name={product.title}
-               price={product.price}
-               key={product.id}
-         />
-          );
-        } ) } 
-       
-<button onClick={this.clickHandler}>change price</button>
+        <ProductList/>
+ {/* <button className="product" onClick={this.countHandler.bind(this, 2)}> counter-{this.state.count}</button> */}
 
       </div>
 
 
     );
-  }
+  };
+
+  };
 
 
-}
+
+
+  // constructor(props){
+  //   super(props);
+  //   console.log('constructor',this);
+  //   this.countHandler = this.countHandler.bind(this);
+  // }
+
+
+
+
 // const  App = () => {
 //   const [products, setProducts] = useState([
 //         { title: "React.js", price: "90$" },
