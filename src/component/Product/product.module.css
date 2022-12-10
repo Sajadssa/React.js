@@ -23,7 +23,7 @@ font-size: 12px;
     background-color:#ede9fe ;
 }
 .dec{
-    background-color: #fecaca;
+    background-color: #ede9fe;
     
 }
 
@@ -39,4 +39,14 @@ font-size: 12px;
    align-items: center;
    font-size: 14px;
     
+}
+
+.input{
+    outline: none;
+    border:1px solid #7655db;
+    width: 5rem;
+    border-radius: 5px;
+}
+.input:focus{
+    border: 2px solid #7655db;
 }
