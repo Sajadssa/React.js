@@ -11,20 +11,66 @@ import Product from "./component/Product/Product";
 import './App.css';
 import ProductList from "./component/ProductList/ProductList";
 // import ProductList from "./component/Product/ProductList";
+import Navbar from './component/Navbar/navBar';
  
 //develop component with class 
 // this way have a one method call named render
 // render have a return that consist of codes for make element such as html tags and javascript
 class App extends React.Component  {
 //error in map method is:
-//Each child in a list should have a unique "key" 
+//Each child in a list should have a unique "key"
 //for solve the problem we can use concept key{id}
-  state = {
-    // products: [
-    //     { title: "React.js", price: "90$" ,id:1},
-    //     { title: "javaScript", price: "80$" ,id:2},
-    //  ],
-  }
+ state = {
+    products: [
+      { title: "React.js", price: "90$", id: 1, quantity: 1 },
+      { title: "javaScript", price: "80$", id: 2, quantity: 2 },
+      { title: "node.js", price: "95$", id: 3, quantity: 3 },
+    ],
+  };
+
+//event handler
+  removeHandler = (id) => {
+    // console.log('clicked',id);
+    const filterProducts = this.state.products.filter((p) => p.id !== id);
+    this.setState({ products: filterProducts });
+  };
+  incrementHandler = (id) => {
+    // console.log('increment',id);
+    const products = [...this.state.products];
+    const selectedItem = products.find((p) => p.id === id);
+    selectedItem.quantity++; //mutate state
+    //    console.log(products);
+    this.setState({ products: products });
+  };
+  decrementHandler = (id) => {
+    // console.log('decrement',id);
+    const products = [...this.state.products];
+    const selectedItem = products.find((p) => p.id === id);
+    selectedItem.quantity--; //mutate state
+    this.setState({ products: products });
+    if (selectedItem.quantity < 1) {
+      const filterProducts = products.filter((p) => p.id !== id);
+      this.setState({ products: filterProducts });
+    }
+    //    console.log(products);
+    //    this.setState({products:products});
+  };
+
+  changeHandler = (event, id) => {
+    console.log(event.target.value, id);
+    const products = [...this.state.products];
+    const selectedItem = products.find((p) => p.id === id);
+    selectedItem.title = event.target.value;
+    this.setState({ products: products });
+  };
+  // state = {
+  //   // products: [
+  //   //     { title: "React.js", price: "90$" ,id:1},
+  //   //     { title: "javaScript", price: "80$" ,id:2},
+  //   //  ],
+  
+  // }
+
       //  count:0
   // clickHandler = (newTitle) => {
   //   // console.log("change price");
@@ -52,7 +98,15 @@ class App extends React.Component  {
     return (
       <div className='Container' id="title">
         <h1>Shopping sajad </h1>
-        <ProductList/>
+        <Navbar totalItems={this.state.products.filter(p=>p.quantity>0).length}/>
+        <ProductList products={this.state.products}
+        onRemove={this.removeHandler}
+        onIncrement={this.incrementHandler}
+        onChange={this.changeHandler}
+        onDecrement={this.decrementHandler}
+        
+        />
+
  {/* <button className="product" onClick={this.countHandler.bind(this, 2)}> counter-{this.state.count}</button> */}
 
       </div>
@@ -130,7 +184,8 @@ class App extends React.Component  {
 // we want develop new component that called name Product: it is mean we wanna render product component in original component that is App?
 //solved: first create new folder as name components  and create new folder  in components folder as name Product and create new file as name Product.js
 //and same as app component we create Product component that return p tag <p> product #1:book</p> and for render in App Component We import Product Component in APP.js file  and we typing <Product /> inside App Component similar to above
-// function App(){
+// function App(){import Navbar from './component/Navbar/navBar';
+
 //   return(<div className="App">
 //     {/* <HookCounter/> */}
 //      <CounterClass/>

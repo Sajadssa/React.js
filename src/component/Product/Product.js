@@ -5,8 +5,10 @@ import { Fragment } from 'react';
 import styles from './product.module.css';
 import ProductList from '../ProductList/ProductList';
 import { useState } from 'react';
+import { BiTrash } from "react-icons/bi";
+ 
 //in here styles is an object so we can access that properties
-const Product = (props) => {
+const Product = ({onChange,onDelete,OnIncrement,OnDecrement,product}) => {
   // const [userName, setuserName] = useState("");
   // const changeHandler = (e) => {
   //   setuserName(e.target.value);
@@ -19,26 +21,28 @@ const Product = (props) => {
   // const price="99 $";
   return (
     //when use from css module we can use access that properties
-    <div className={styles.product} onClick={props.click}>
+    <div className={styles.product} >
       {/* how to dynamic in react */}
       {/* <Fragment>
-        <p >product name : {props.name}  </p>
-        <p>price : {props.price}  </p>
+        <p >product name : {name}  </p>
+        <p>price : {price}  </p>
   </Fragment> */}
  
-      <p >product name : {props.product.title}  </p>
-      <p>price : {props.product.price}  </p>
-      <span className={styles.value}>{props.product.quantity}</span>
-      <button className={`${styles.button} ${styles.inc}`} onClick={props.OnIncrement} >+</button>
-      {/* <input className={styles.input} onChange={props.onChange} type="text" value={props.product.title} /> */}
+      <p >product name : {product.title}  </p>
+      <p>price : {product.price}  </p>
+      <span className={styles.value}>{product.quantity}</span>
+      <input className={styles.input} onChange={onChange} type="text" value={product.title} />
+      <button className={`${styles.button} ${styles.inc}`} onClick={OnIncrement} >+</button>
+      {/* <input className={styles.input} onChange={onChange} type="text" value={product.title} /> */}
     
-      <button className={`${styles.button} ${styles.dec}`} onClick={props.OnDecrement} >-</button>
-      <input className={styles.input} onChange={props.onChange} type="text" value={props.product.title} />
+      <button className={`${styles.button}  ${product.quantity===1&& styles.remove} ${styles.dec}` } onClick={OnDecrement} >
+        {product.quantity > 1 ? "-": <BiTrash/>}
+      </button>
 
       {/* for access nested data we can use children attribute */}
-      {props.children}
+      {/* {children} */}
       {/* <p>Product price:{price}</p> */}
-      <button className={styles.button} onClick={props.onDelete}>Delete</button>
+      <button className={styles.button} onClick={onDelete}>Delete</button>
 
     </div>
   );
