@@ -1,0 +1,12 @@
+/* entry point app that file name start by index */
+/* for use this style should be import this file in index.js */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: rgba(24, 34, 95,.2);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
