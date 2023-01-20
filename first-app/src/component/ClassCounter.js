@@ -17,7 +17,7 @@ class CounterClass extends Component {
         <h2>count- {this.state.count} </h2>
         <button onClick={this.addOneHandler}>Add1</button>
       </div>
-    );
+    )
   }
 }
 

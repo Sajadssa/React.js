@@ -12,26 +12,28 @@ import './App.css';
 import ProductList from "./component/ProductList/ProductList";
 // import ProductList from "./component/Product/ProductList";
 import Navbar from './component/Navbar/navBar';
+import ClassCounters from "./component/ClassCounters";
+import FunctionalCounter from "./component/FunctionalCounter";
  
 //develop component with class 
 // this way have a one method call named render
 // render have a return that consist of codes for make element such as html tags and javascript
 class App extends React.Component  {
-  constructor(props) {
-    super(props);
-    console.log('App.js constructor');
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // console.log('App.js constructor');
+  // }
 //error in map method is:
 //Each child in a list should have a unique "key"
 //for solve the problem we can use concept key{id}
- state = {
-    products: [
-      { title: "React.js", price: "90$", id: 1, quantity: 1 },
-      { title: "javaScript", price: "80$", id: 2, quantity: 2 },
-      { title: "node.js", price: "95$", id: 3, quantity: 3 },
-    ],
-    // count:0,
-  };
+//  state = {
+//     products: [
+//       { title: "React.js", price: "90$", id: 1, quantity: 1 },
+//       { title: "javaScript", price: "80$", id: 2, quantity: 2 },
+//       { title: "node.js", price: "95$", id: 3, quantity: 3 },
+//     ],
+//     // count:0,
+//   };
 
 //event handler
   removeHandler = (id) => {
@@ -100,7 +102,7 @@ class App extends React.Component  {
     //1.take id=>pk
     //2.find index=>id an item that user click
     const index=this.state.products.findIndex((item)=>item.id===id);
-    console.log(index);
+    // console.log(index);
     //3.clone the selected index and update the title
     const product={...this.state.products[index]};
    product.title=event.target.value;
@@ -141,29 +143,32 @@ class App extends React.Component  {
 
   // };
   componentDidMount() { 
-    console.log('app.js componentDidMount');
+    // console.log('app.js componentDidMount');
    }
    componentDidUpdate(prevProps, prevState) {
-    console.log('app.js componentDidUpdate',prevState);
+    // console.log('app.js componentDidUpdate',prevState);
     // console.log('app.js componentDidUpdate',prevState.count);
    }
 
   render() {
-    console.log('app.js render');
+    // console.log('app.js render');
     return (
       <div className='Container' id="title">
         {/* <button onClick={()=>this.setState({count:this.state.count+1})}>
           count:{this.state.count}
         </button> */}
-        <h1>Shopping sajad </h1>
+        {/* <h1>Shopping sajad </h1>
         <Navbar totalItems={this.state.products.filter(p=>p.quantity>0).length}/>
         <ProductList products={this.state.products}
         onRemove={this.removeHandler}
         onIncrement={this.incrementHandler}
         onChange={this.changeHandler}
-        onDecrement={this.decrementHandler}
+        onDecrement={this.decrementHandler} */}
         
-        />
+        {/* /> */}
+
+{/* <ClassCounters /> */}
+<FunctionalCounter />
 
 
       </div>
@@ -218,11 +223,7 @@ class App extends React.Component  {
 
 //    );
 // }
-console.log('start');
-   setTimeout(()=>{console.log('after 2 min',2000)
-})
-console.log('end');
- 
+
 
 // const App = () => {
 //     return (
