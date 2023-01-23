@@ -10,6 +10,7 @@ const FunctionalCounter = () => {
     return ( 
 
         <div>
+        
 
         <input type="text" onChange={(e)=>setName(e.target.value)} value={name} />
         <p >{name} </p>

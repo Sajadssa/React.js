@@ -1,5 +1,5 @@
 // import product.css 
-// import './product.css';
+import './product.module.css';
 // import produce.modular.css;
 // import React,{Component} from 'react';
 

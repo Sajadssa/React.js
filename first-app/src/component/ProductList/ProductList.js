@@ -58,7 +58,7 @@ class ProductList extends Component {
             <Product
               // name={product.title}
               // price={product.price}
-              // key={index}
+              key={index}
               product={product}
               onDelete={() => onRemove(product.id)}
               OnIncrement={() => onIncrement(product.id)}

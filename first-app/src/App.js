@@ -6,14 +6,18 @@ import CounterClass from "./component/ClassCounter";
 import HookArray from "./component/HookArray";
 import HookCounter from "./component/HookCounter";
 import HookObject from "./component/HookObject";
-// import Product from "./component/Product/Product";
+import Product from "./component/Product/Product";
 //import app.css file 
 import './App.css';
+
 import ProductList from "./component/ProductList/ProductList";
 // import ProductList from "./component/Product/ProductList";
 import Navbar from './component/Navbar/navBar';
 import ClassCounters from "./component/ClassCounters";
 import FunctionalCounter from "./component/FunctionalCounter";
+import ClassTimer from "./component/ClassTimer";
+import FunctionalTimer from "./component/FunctionalTimer";
+import Wrapper from "./component/hoc/Wrapper";
  
 //develop component with class 
 // this way have a one method call named render
@@ -26,14 +30,15 @@ class App extends React.Component  {
 //error in map method is:
 //Each child in a list should have a unique "key"
 //for solve the problem we can use concept key{id}
-//  state = {
-//     products: [
-//       { title: "React.js", price: "90$", id: 1, quantity: 1 },
-//       { title: "javaScript", price: "80$", id: 2, quantity: 2 },
-//       { title: "node.js", price: "95$", id: 3, quantity: 3 },
-//     ],
-//     // count:0,
-//   };
+ state = {
+    products: [
+      { title: "React.js", price: "90$", id: 1, quantity: 1 },
+      { title: "javaScript", price: "80$", id: 2, quantity: 2 },
+      { title: "node.js", price: "95$", id: 3, quantity: 3 },
+    ],
+    // count:0,
+    // isShow:true,
+  };
 
 //event handler
   removeHandler = (id) => {
@@ -136,12 +141,12 @@ class App extends React.Component  {
 
 
   // };
-  // countHandler = (id) => {
-  //   // console.log('count clicked', this);
-  //   this.setState({ count: this.state.count + 1 });
-  //   console.log('count clicked', id);
+  countHandler = (id) => {
+    // console.log('count clicked', this);
+    this.setState({ count: this.state.count + 1 });
+    console.log('count clicked', id);
 
-  // };
+  };
   componentDidMount() { 
     // console.log('app.js componentDidMount');
    }
@@ -152,26 +157,23 @@ class App extends React.Component  {
 
   render() {
     // console.log('app.js render');
+    console.log(this.props);
     return (
-      <div className='Container' id="title">
-        {/* <button onClick={()=>this.setState({count:this.state.count+1})}>
-          count:{this.state.count}
-        </button> */}
-        {/* <h1>Shopping sajad </h1>
-        <Navbar totalItems={this.state.products.filter(p=>p.quantity>0).length}/>
+      <>
+
+<Navbar totalItems={this.state.products.filter(p=>p.quantity>0).length}
+
+/>
         <ProductList products={this.state.products}
         onRemove={this.removeHandler}
         onIncrement={this.incrementHandler}
         onChange={this.changeHandler}
-        onDecrement={this.decrementHandler} */}
-        
-        {/* /> */}
-
-{/* <ClassCounters /> */}
-<FunctionalCounter />
+        onDecrement={this.decrementHandler}
+/>
 
 
-      </div>
+      </>
+     
 
 
     );
@@ -256,4 +258,4 @@ class App extends React.Component  {
    
 //   </div>)
 // }
-export default App;
+export default Wrapper(App,"Container");
