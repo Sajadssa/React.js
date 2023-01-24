@@ -18,6 +18,8 @@ import FunctionalCounter from "./component/FunctionalCounter";
 import ClassTimer from "./component/ClassTimer";
 import FunctionalTimer from "./component/FunctionalTimer";
 import Wrapper from "./component/hoc/Wrapper";
+import ClickCounter from "./component/HOCExample/ClickCounter";
+import HoverCounter from "./component/HOCExample/HoverCounter";
  
 //develop component with class 
 // this way have a one method call named render
@@ -171,7 +173,8 @@ class App extends React.Component  {
         onDecrement={this.decrementHandler}
 />
 
-
+<ClickCounter name="sajad" />
+<HoverCounter/>
       </>
      
 
