@@ -20,6 +20,7 @@ import FunctionalTimer from "./component/FunctionalTimer";
 import Wrapper from "./component/hoc/Wrapper";
 import ClickCounter from "./component/HOCExample/ClickCounter";
 import HoverCounter from "./component/HOCExample/HoverCounter";
+import ParentComp from "./component/PureMemoCompnent/ParentComp";
  
 //develop component with class 
 // this way have a one method call named render
@@ -175,6 +176,7 @@ class App extends React.Component  {
 
 <ClickCounter name="sajad" />
 <HoverCounter/>
+<ParentComp/>
       </>
      
 
