@@ -1,8 +1,9 @@
-import React, { Component, PureComponent } from 'react';
-import PureComp from './Purecom';
+import React, {Component } from 'react';
+import MemoComp from './MemoComp';
+// import PureComp from './Purecom';
 import RegComp from './Regcom';
 
-class ParentComp extends PureComponent {
+class ParentComp extends Component {
     state = { name:"sajad" } 
     //when occurs CDM
     componentDidMount() {
@@ -17,7 +18,8 @@ class ParentComp extends PureComponent {
         return (
             <div>parent component
             <RegComp name={this.state.name}/>
-            <PureComp name={this.state.name}/>
+            {/* <PureComp name={this.state.name}/> */}
+            <MemoComp name={this.state.name}/>
             </div>
             
         );
