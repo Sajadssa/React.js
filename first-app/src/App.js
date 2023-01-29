@@ -23,6 +23,7 @@ import HoverCounter from "./component/HOCExample/HoverCounter";
 import ParentComp from "./component/PureMemoCompnent/ParentComp";
 import ClassRef from "./component/Ref/ClassRef";
 import FunctionalRef from "./component/Ref/FunctionalRef";
+import UseRefExapmple from "./component/Ref/UseRef";
  
 //develop component with class 
 // this way have a one method call named render
@@ -178,9 +179,10 @@ class App extends React.Component  {
 
 <ClickCounter name="sajad" />
 <HoverCounter/>
-<ParentComp/>
+{/* <ParentComp/> */}
 {/* <ClassRef/> */}
-<FunctionalRef/>
+{/* <FunctionalRef/> */}
+<UseRefExapmple/>
       </>
      
 
