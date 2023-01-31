@@ -24,6 +24,8 @@ import ParentComp from "./component/PureMemoCompnent/ParentComp";
 import ClassRef from "./component/Ref/ClassRef";
 import FunctionalRef from "./component/Ref/FunctionalRef";
 import UseRefExapmple from "./component/Ref/UseRef";
+import CounterProvider from "./component/Context/CounterProvider";
+import CounterOne from "./component/Context/CounterOne";
 
 export const UserContext=React.createContext();
 export const WebsiteContext=React.createContext();
@@ -198,7 +200,10 @@ class App extends React.Component  {
 <UseRefExapmple/>
       </UserContext.Provider>
       </WebsiteContext.Provider>
-
+<CounterProvider>
+ <p>wellcom to context</p>
+ <CounterOne/>
+</CounterProvider>
       </>
 
      
