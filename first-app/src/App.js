@@ -1,7 +1,7 @@
 // import React from 'react';
 //in new version React you don't need IMPORT REACT
 //import named export after PACKAGE React {Component}
-import React ,{Component,useState}from "react";
+import React ,{Component,useState,useContext}from "react";
 import CounterClass from "./component/ClassCounter";
 import HookArray from "./component/HookArray";
 import HookCounter from "./component/HookCounter";
@@ -24,7 +24,9 @@ import ParentComp from "./component/PureMemoCompnent/ParentComp";
 import ClassRef from "./component/Ref/ClassRef";
 import FunctionalRef from "./component/Ref/FunctionalRef";
 import UseRefExapmple from "./component/Ref/UseRef";
- 
+
+export const UserContext=React.createContext();
+export const WebsiteContext=React.createContext();
 //develop component with class 
 // this way have a one method call named render
 // render have a return that consist of codes for make element such as html tags and javascript
@@ -144,6 +146,12 @@ class App extends React.Component  {
   //   //   ],
 
   //   // });
+  //useContext=>provider for use of all component
+  //1.create context=>react.context
+  //2.export context
+  //3.provider context
+  //4.useContext=>consume
+
 
 
   // };
@@ -166,6 +174,11 @@ class App extends React.Component  {
     console.log(this.props);
     return (
       <>
+      <WebsiteContext.Provider value={"sajadssa.ir"}>
+      <UserContext.Provider value={"SAJAD"}>
+
+
+
 
 <Navbar totalItems={this.state.products.filter(p=>p.quantity>0).length}
 
@@ -183,7 +196,11 @@ class App extends React.Component  {
 {/* <ClassRef/> */}
 {/* <FunctionalRef/> */}
 <UseRefExapmple/>
+      </UserContext.Provider>
+      </WebsiteContext.Provider>
+
       </>
+
      
 
 

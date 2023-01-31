@@ -9,7 +9,8 @@ import styles from './product.module.css';
 
 // import { useState } from 'react';
 import { BiTrash } from "react-icons/bi";
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { UserContext,WebsiteContext } from '../../App';
 //in here styles is an object so we can access that properties
 const Product = ({onChange,onDelete,OnIncrement,OnDecrement,product}) => {
   console.log('product.js render');
@@ -30,6 +31,9 @@ const Product = ({onChange,onDelete,OnIncrement,OnDecrement,product}) => {
   // develop Product component  passed argument or make dynamic component with props
   // this way is not fun and not suitable
   // const price="99 $";
+  const website=useContext(WebsiteContext);
+  const user=useContext(UserContext);
+  console.log(user,website);
   return (
     //when use from css module we can use access that properties
     <div className={styles.product} >
