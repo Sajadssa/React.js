@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 //1.create context object
-export const CounterContext = React.createContext();
+  const CounterContext = React.createContext();
 //add new context for setState count or setCount
-export const CounterContextDispather = React.createContext();
+  const CounterContextDispather = React.createContext();
 
 const CounterProvider = ({ children }) => {
   const [count, setCount] = useState(0);
@@ -16,3 +17,24 @@ const CounterProvider = ({ children }) => {
 };
 
 export default CounterProvider;
+
+//create custom hook for context
+export const UseCount=()=>useContext(CounterContext);
+
+export const UseCountActions=()=>{
+  const setCount=useContext(CounterContextDispather)
+  //management actions
+  const addOne=()=>{
+    setCount((prevCount)=>prevCount+1);
+  }
+  const addFive=()=>{
+    setCount((prevCount)=>prevCount+5);
+  }
+  const decrement=()=>{
+    setCount((prevCount)=>prevCount-1);
+  }
+
+
+
+  return{addFive,addOne,decrement}
+};

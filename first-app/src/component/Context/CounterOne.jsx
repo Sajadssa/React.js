@@ -1,13 +1,18 @@
 import { useContext } from "react";
-import { CounterContext, CounterContextDispather } from "./CounterProvider";
+import {UseCount,UseCountActions } from "./CounterProvider";
 
 const CounterOne = () => {
-   const count=useContext(CounterContext);
-   const setCount=useContext(CounterContextDispather);
+const count=UseCount();
+const actions = UseCountActions();
+console.log(actions);
+//object destructuring
+const{addFive,addOne,decrement}=UseCountActions();
     return ( 
         <div>
             <h2>count is:{count}</h2>
-            <button onClick={()=>setCount(count+1)}>Add one</button>
+            <button onClick={addOne}>Add one</button>
+            <button onClick={addFive}>Add Five</button>
+            <button onClick={decrement}>Decrement</button>
         </div>
      );
 }
