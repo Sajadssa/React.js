@@ -79,14 +79,15 @@ const CountReducer = () => {
       <button onClick={() => dispatch({type:"add",value:1})}> Add  </button>
       <button onClick={() => dispatch({type:"add",value:5})}> Add5  </button>
       <button onClick={() => dispatch({type:"decrement",value:1})}> Decrement </button>
+      <button onClick={() => dispatch({type:"reset"})}>reset </button>
       </div>
       <div>
       <h2> count two is: {countTwo} </h2>
       <button onClick={() => dispatchTwo({type:"add",value:1})}> Add2 </button>
       <button onClick={() => dispatchTwo({type:"add",value:5})}> Add5 </button>
       <button onClick={() => dispatchTwo({type:"decrement",value:1})}> Decrement2 </button>
+      <button onClick={() => dispatchTwo({type:"reset"})}>reset </button>
       </div>
-      <button onClick={() => dispatch({type:"reset"})}>reset </button>
     </div>
   );
 };
