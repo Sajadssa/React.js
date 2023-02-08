@@ -192,7 +192,8 @@ class App extends React.Component {
                     </UserContext.Provider>{" "}
                 </WebsiteContext.Provider>{" "}
                 <CounterProvider>
-                    <p> wellcom to context </p> <CounterOne />
+                    <p> wellcom to context </p> 
+                    <CounterOne />
                 <CountReducer/>
                 </CounterProvider>
             </>
