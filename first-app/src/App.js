@@ -27,6 +27,7 @@ import UseRefExapmple from "./component/Ref/UseRef";
 import CounterProvider from "./component/Context/CounterProvider";
 import CounterOne from "./component/Context/CounterOne";
 import CountReducer from "./component/Reducer/CountReducer";
+import ProductProvider, { UseProducts, UseProductsActions } from "./component/Providers/ProductsProvider";
 
 export const UserContext = React.createContext();
 export const WebsiteContext = React.createContext();
@@ -268,15 +269,18 @@ export const WebsiteContext = React.createContext();
 //   </div>)
 // }
 const App = () => {
-  const [products, setProducts] = useState(
-     [
-      { title: "React.js", price: "90$", id: 1, quantity: 1 },
-      { title: "javaScript", price: "80$", id: 2, quantity: 2 },
-      { title: "node.js", price: "95$", id: 3, quantity: 3 },
-    ]
+  // import 2 hook ,useProducts(),useProductsActions()
+  const products=UseProducts();
+  const setProducts=UseProductsActions();
+  // const [products, setProducts] = useState(
+    //  [
+    //   { title: "React.js", price: "90$", id: 1, quantity: 1 },
+    //   { title: "javaScript", price: "80$", id: 2, quantity: 2 },
+    //   { title: "node.js", price: "95$", id: 3, quantity: 3 },
+    // ]
     // count:0,
     // isShow:true,
-  );
+  // );
   // define methods and convert to function expression
   const removeHandler = (id) => {
     // console.log('clicked',id);
@@ -355,14 +359,7 @@ const App = () => {
     <>
       <WebsiteContext.Provider value={"sajadssa.ir"}>
         <UserContext.Provider value={"SAJAD"}>
-          <Navbar totalItems={products.filter((p) => p.quantity > 0).length} />
-          <ProductList
-            products={products}
-            onRemove={removeHandler}
-            onIncrement={incrementHandler}
-            onChange={changeHandler}
-            onDecrement={decrementHandler}
-          />
+        
           <ClickCounter name="sajad" />
           <HoverCounter /> {/* <ParentComp/> */} {/* <ClassRef/> */}{" "}
           {/* <FunctionalRef/> */} <UseRefExapmple />
@@ -373,6 +370,18 @@ const App = () => {
         <CounterOne />
         <CountReducer />
       </CounterProvider>
+      <ProductProvider>
+      <Navbar  />
+          <ProductList
+            // products={products}
+            onRemove={removeHandler}
+            onIncrement={incrementHandler}
+            onChange={changeHandler}
+            onDecrement={decrementHandler}
+          />
+
+
+      </ProductProvider>
     </>
   );
 };
