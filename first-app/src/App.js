@@ -282,78 +282,78 @@ const App = () => {
     // isShow:true,
   // );
   // define methods and convert to function expression
-  const removeHandler = (id) => {
-    // console.log('clicked',id);
-    const filterProducts = products.filter((p) => p.id !== id);
-    setProducts(filterProducts );
-  };
-  const incrementHandler = (id) => {
-    // console.log('increment',id);
-    // const products = [...this.state.products];
-    // const selectedItem = products.find((p) => p.id === id);
-    // selectedItem.quantity++; //mutate state
-    //    console.log(products);
-    // this.setState({ products: products });
-    // console.log(this.state.products[0]);
-    //1.take id=>pk
-    //2.find index=>id an item that user click
-    const index = products.findIndex((item) => item.id === id);
-    console.log(index);
-    const product = { ...products[index] };
-    product.quantity++;
-    const updateProducts = [...products];
-    updateProducts[index] = product;
-    setProducts(updateProducts);
-    // console.log(products);
-  };
-  const decrementHandler = (id) => {
-    // console.log('decrement',id);
-    // const products = [...this.state.products];
-    // const selectedItem = products.find((p) => p.id === id);
-    // selectedItem.quantity--; //mutate state
-    // this.setState({ products: products });
-    // if (selectedItem.quantity < 1) {
-    //   const filterProducts = products.filter((p) => p.id !== id);
-    //   this.setState({ products: filterProducts });
-    // }
-    //    console.log(products);
-    //    this.setState({products:products});
-    //1.take id=>pk
-    //2.find index=>id an item that user click
-    const index = products.findIndex((item) => item.id === id);
-    console.log(index);
-    //3.clone the selected index and update qty:
-    const product = { ...products[index] };
-   if (product.quantity === 1) {
-      const filterProducts = products.filter((p) => p.id !== id);
-      setProducts(filterProducts);
-    } else {
-      const updateProducts = [...products];
-      product.quantity--;
-      updateProducts[index] = product;
-      setProducts(updateProducts);
-    }
-  };
+  // const removeHandler = (id) => {
+  //   // console.log('clicked',id);
+  //   const filterProducts = products.filter((p) => p.id !== id);
+  //   setProducts(filterProducts );
+  // };
+  // const incrementHandler = (id) => {
+  //   // console.log('increment',id);
+  //   // const products = [...this.state.products];
+  //   // const selectedItem = products.find((p) => p.id === id);
+  //   // selectedItem.quantity++; //mutate state
+  //   //    console.log(products);
+  //   // this.setState({ products: products });
+  //   // console.log(this.state.products[0]);
+  //   //1.take id=>pk
+  //   //2.find index=>id an item that user click
+  //   const index = products.findIndex((item) => item.id === id);
+  //   console.log(index);
+  //   const product = { ...products[index] };
+  //   product.quantity++;
+  //   const updateProducts = [...products];
+  //   updateProducts[index] = product;
+  //   setProducts(updateProducts);
+  //   // console.log(products);
+  // };
+  // const decrementHandler = (id) => {
+  //   // console.log('decrement',id);
+  //   // const products = [...this.state.products];
+  //   // const selectedItem = products.find((p) => p.id === id);
+  //   // selectedItem.quantity--; //mutate state
+  //   // this.setState({ products: products });
+  //   // if (selectedItem.quantity < 1) {
+  //   //   const filterProducts = products.filter((p) => p.id !== id);
+  //   //   this.setState({ products: filterProducts });
+  //   // }
+  //   //    console.log(products);
+  //   //    this.setState({products:products});
+  //   //1.take id=>pk
+  //   //2.find index=>id an item that user click
+  //   const index = products.findIndex((item) => item.id === id);
+  //   console.log(index);
+  //   //3.clone the selected index and update qty:
+  //   const product = { ...products[index] };
+  //  if (product.quantity === 1) {
+  //     const filterProducts = products.filter((p) => p.id !== id);
+  //     setProducts(filterProducts);
+  //   } else {
+  //     const updateProducts = [...products];
+  //     product.quantity--;
+  //     updateProducts[index] = product;
+  //     setProducts(updateProducts);
+  //   }
+  // };
 
-  const changeHandler = (event, id) => {
-    // console.log(event.target.value, id);
-    // const products = [...this.state.products];
-    // const selectedItem = products.find((p) => p.id === id);
-    // selectedItem.title = event.target.value;
-    // this.setState({ products: products });
-    //1.take id=>pk
-    //2.find index=>id an item that user click
-    const index = products.findIndex((item) => item.id === id);
-    // console.log(index);
-    //3.clone the selected index and update the title
-    const product = { ...products[index] };
-    product.title = event.target.value;
-    //4.update products
-    const updateProducts = [...products];
-    updateProducts[index] = product;
-    setProducts(updateProducts );
-    // console.log(products);
-  };
+  // const changeHandler = (event, id) => {
+  //   // console.log(event.target.value, id);
+  //   // const products = [...this.state.products];
+  //   // const selectedItem = products.find((p) => p.id === id);
+  //   // selectedItem.title = event.target.value;
+  //   // this.setState({ products: products });
+  //   //1.take id=>pk
+  //   //2.find index=>id an item that user click
+  //   const index = products.findIndex((item) => item.id === id);
+  //   // console.log(index);
+  //   //3.clone the selected index and update the title
+  //   const product = { ...products[index] };
+  //   product.title = event.target.value;
+  //   //4.update products
+  //   const updateProducts = [...products];
+  //   updateProducts[index] = product;
+  //   setProducts(updateProducts );
+  //   // console.log(products);
+  // };
 
   return (
     <>
@@ -364,24 +364,27 @@ const App = () => {
           <HoverCounter /> {/* <ParentComp/> */} {/* <ClassRef/> */}{" "}
           {/* <FunctionalRef/> */} <UseRefExapmple />
         </UserContext.Provider>{" "}
-      </WebsiteContext.Provider>{" "}
+
+
+
+      <ProductProvider>
+      <Navbar  />
+          <ProductList
+            // products={products}
+            // onRemove={removeHandler}
+            // onIncrement={incrementHandler}
+            // onChange={changeHandler}
+            // onDecrement={decrementHandler}
+          />
+
+
       <CounterProvider>
         <p> wellcom to context </p>
         <CounterOne />
         <CountReducer />
       </CounterProvider>
-      <ProductProvider>
-      <Navbar  />
-          <ProductList
-            // products={products}
-            onRemove={removeHandler}
-            onIncrement={incrementHandler}
-            onChange={changeHandler}
-            onDecrement={decrementHandler}
-          />
-
-
       </ProductProvider>
+      </WebsiteContext.Provider>{" "}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, Component } from "react";
 import Product from "../Product/Product";
-import { UseProducts } from "../Providers/ProductsProvider";
+import { UseProducts, UseProductsActions } from "../Providers/ProductsProvider";
 // import Product from './../Product/Product';
 // class ProductList extends Component {
 //   // state = {
@@ -110,7 +110,10 @@ const ProductList = (props) => {
   const products=UseProducts();
 
   const renderProduct = () => {
-    const {onChange,onDecrement,onIncrement,onRemove}=props
+    // const {onChange,onDecrement,onIncrement,onRemove}=props
+    
+    // const {removeHandler,changeHandler,incrementHandler,decrementHandler}=UseProductsActions();
+    const dispatch=UseProductsActions();
     if (products.length===0)
       return <div>there is no product in your cart</div>
 
@@ -123,10 +126,10 @@ const ProductList = (props) => {
               // price={product.price}
               key={index}
               product={product}
-              onDelete={() => onRemove(product.id)}
-              OnIncrement={() => onIncrement(product.id)}
-              OnDecrement={() => onDecrement(product.id)}
-              onChange={(e) => onChange(e, product.id)}
+              onDelete={() => dispatch({type:"remove",id:product.id})}
+              OnIncrement={() => dispatch({type:"increment",id:product.id})}
+              OnDecrement={() => dispatch({type:"decrement",id:product.id})}
+              onChange={(e) => dispatch({type:"edit",id:product.id,event:e})}
             />
           )
         })}
