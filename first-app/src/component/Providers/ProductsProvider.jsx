@@ -1,16 +1,18 @@
 import React, { useReducer, useState } from "react";
 import { useContext } from "react";
+// import fake data from api
+import {productsData} from "./../db/Products";
 //1.create context object
   const ProductContext = React.createContext();
 //add new context for setState count or setCount
   const ProductContextDispather = React.createContext();
   
   // const initialState=0;
-  const initialState= [
-    { title: "React.js", price: "90$", id: 1, quantity: 1 },
-    { title: "javaScript", price: "80$", id: 2, quantity: 2 },
-    { title: "node.js", price: "95$", id: 3, quantity: 3 },
-         ];
+  // const initialState= [
+  //   { title: "React.js", price: "90$", id: 1, quantity: 1 },
+  //   { title: "javaScript", price: "80$", id: 2, quantity: 2 },
+  //   { title: "node.js", price: "95$", id: 3, quantity: 3 },
+  //        ];
   const reducer=(state,action)=>{
 
     switch(action.type){
@@ -88,7 +90,7 @@ const ProductsProvider = ({ children }) => {
   //        ]
   // );
   // const[products,setProducts]=useReducer(reducer,initialState);
-  const[products,dispatch]=useReducer(reducer,initialState);
+  const[products,dispatch]=useReducer(reducer,productsData);
   return (
     <ProductContext.Provider value={products}>
       {/* <ProductContextDispather.Provider value={setCount}> */}

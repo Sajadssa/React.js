@@ -28,6 +28,7 @@ import CounterProvider from "./component/Context/CounterProvider";
 import CounterOne from "./component/Context/CounterOne";
 import CountReducer from "./component/Reducer/CountReducer";
 import ProductProvider, { UseProducts, UseProductsActions } from "./component/Providers/ProductsProvider";
+import Filter from "./component/Filter/Filter";
 
 export const UserContext = React.createContext();
 export const WebsiteContext = React.createContext();
@@ -360,9 +361,11 @@ const App = () => {
       <WebsiteContext.Provider value={"sajadssa.ir"}>
         <UserContext.Provider value={"SAJAD"}>
         
-          <ClickCounter name="sajad" />
-          <HoverCounter /> {/* <ParentComp/> */} {/* <ClassRef/> */}{" "}
-          {/* <FunctionalRef/> */} <UseRefExapmple />
+          {/* <ClickCounter name="sajad" /> */}
+          {/* <HoverCounter /> */}
+           {/* <ParentComp/> */} {/* <ClassRef/> */}{" "}
+          {/* <FunctionalRef/> */}
+           {/* <UseRefExapmple /> */}
         </UserContext.Provider>{" "}
 
 
@@ -378,11 +381,12 @@ const App = () => {
           />
 
 
-      <CounterProvider>
+      {/* <CounterProvider>
         <p> wellcom to context </p>
         <CounterOne />
         <CountReducer />
-      </CounterProvider>
+      </CounterProvider> */}
+      <Filter/>
       </ProductProvider>
       </WebsiteContext.Provider>{" "}
     </>
