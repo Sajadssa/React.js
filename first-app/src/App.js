@@ -372,6 +372,7 @@ const App = () => {
 
       <ProductProvider>
       <Navbar  />
+      <Filter/>
           <ProductList
             // products={products}
             // onRemove={removeHandler}
@@ -386,7 +387,6 @@ const App = () => {
         <CounterOne />
         <CountReducer />
       </CounterProvider> */}
-      <Filter/>
       </ProductProvider>
       </WebsiteContext.Provider>{" "}
     </>
