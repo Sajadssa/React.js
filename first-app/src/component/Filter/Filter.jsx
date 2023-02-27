@@ -1,13 +1,14 @@
+import { UseProductsActions } from "../Providers/ProductsProvider";
+
 const Filter = () => {
-   const changeHandler=(e)=>{
-// console.log(e.target.value);
-   }
+   // we get dispatch from productsList.jsx
+ const dispatch=UseProductsActions();
     return ( 
         <div>
             
            filter based on:
            <div>
-            <select onChange={changeHandler}>
+            <select onChange={(e) => dispatch({type:"filter",event:e})}>
                 <option value="">All</option>
                 <option value="Mouse">Mouse</option>
                 <option value="Monitor">Monitor</option>

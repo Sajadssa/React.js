@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import { useContext } from "react";
 // import fake data from api
 import {productsData} from "./../db/Products";
@@ -73,6 +73,12 @@ import {productsData} from "./../db/Products";
       case "remove":
         const filterProducts = state.filter((p) => p.id !==action.id);
     return(filterProducts );
+    // create new action with type filter
+    case "filter":
+     
+        console.log(action.event.target.value);
+        return state;
+           
         default:
         return state;
   
