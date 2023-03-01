@@ -15,29 +15,29 @@ import {productsData} from "./../db/Products";
   //        ];
   const reducer=(state,action)=>{
 
-    switch(action.type){
+    switch (action.type) {
       case "increment":
         // return state+action.value;
-          // console.log('increment',id);
-    // const products = [...this.state.products];
-    // const selectedItem = products.find((p) => p.id === id);
-    // selectedItem.quantity++; //mutate state
-    //    console.log(products);
-    // this.setState({ products: products });
-    // console.log(this.state.products[0]);
-    //1.take id=>pk
-    //2.find index=>id an item that user click
-    {
+        // console.log('increment',id);
+        // const products = [...this.state.products];
+        // const selectedItem = products.find((p) => p.id === id);
+        // selectedItem.quantity++; //mutate state
+        //    console.log(products);
+        // this.setState({ products: products });
+        // console.log(this.state.products[0]);
+        //1.take id=>pk
+        //2.find index=>id an item that user click
+        {
 
-      const index = state.findIndex((item) => item.id === action.id);
-      console.log(index);
-      const product = { ...state[index] };
-      product.quantity++;
-      const updateProducts = [...state];
-      updateProducts[index] = product;
-     return(updateProducts);
-    }
-    // console.log(products);
+          const index = state.findIndex((item) => item.id === action.id);
+          console.log(index);
+          const product = { ...state[index] };
+          product.quantity++;
+          const updateProducts = [...state];
+          updateProducts[index] = product;
+          return (updateProducts);
+        }
+      // console.log(products);
       case "decrement":
         // return state-action.value;
         {
@@ -46,39 +46,40 @@ import {productsData} from "./../db/Products";
           console.log(index);
           //3.clone the selected index and update qty:
           const product = { ...state[index] };
-         if (product.quantity === 1) {
+          if (product.quantity === 1) {
             const filterProducts = state.filter((p) => p.id !== action.id);
-            return(filterProducts);
+            return (filterProducts);
           } else {
             const updateProducts = [...state];
             product.quantity--;
             updateProducts[index] = product;
-            return(updateProducts);
+            return (updateProducts);
           }
         }
-        case "edit":
-          // return initialState;
-          {
-            const index = state.findIndex((item) => item.id ===action.id);
-    // console.log(index);
-    //3.clone the selected index and update the title
-    const product = { ...state[index] };
-    product.title = action.event.target.value;
-    //4.update products
-    const updateProducts = [...state];
-    updateProducts[index] = product;
-    return(updateProducts );
-    // console.log(products);
-          }
+      case "edit":
+        // return initialState;
+        {
+          const index = state.findIndex((item) => item.id === action.id);
+          // console.log(index);
+          //3.clone the selected index and update the title
+          const product = { ...state[index] };
+          product.title = action.event.target.value;
+          //4.update products
+          const updateProducts = [...state];
+          updateProducts[index] = product;
+          return (updateProducts);
+          // console.log(products);
+        }
       case "remove":
-        const filterProducts = state.filter((p) => p.id !==action.id);
-    return(filterProducts );
-    // create new action with type filter
-    case "filter":
+        const filterProducts = state.filter((p) => p.id !== action.id);
+        return (filterProducts);
+      // create new action with type filter
+      case "filter": {
      
         console.log(action.event.target.value);
-        return state;
-           
+        const updatedProducts=productsData.filter(p => p.category.indexOf(action.event.target.value)>=0) 
+        return updatedProducts;
+      }
         default:
         return state;
   

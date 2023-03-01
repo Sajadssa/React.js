@@ -1,17 +1,24 @@
 import { UseProductsActions } from "../Providers/ProductsProvider";
+import { useState } from 'react';
 
 const Filter = () => {
    // we get dispatch from productsList.jsx
- const dispatch=UseProductsActions();
+   const [value, setValue] = useState('');
+   const dispatch = UseProductsActions();
+   const changeHandler = (e) => { 
+      dispatch({ type: "filter", event: e })
+      setValue(e.target.value)
+
+   }
     return ( 
         <div>
             
            filter based on:
            <div>
-            <select onChange={(e) => dispatch({type:"filter",event:e})}>
+            <select onChange={changeHandler} value={value}>
                 <option value="">All</option>
-                <option value="Mouse">Mouse</option>
-                <option value="Monitor">Monitor</option>
+                <option value="mouse">Mouse</option>
+                <option value="monitor">Monitor</option>
                 <option value="webcam">webcam</option>
                 <option value="microphone">microphone</option>
             </select>
