@@ -13,7 +13,8 @@ const Filter = () => {
     return ( 
         <div>
             
-           filter based on:
+          filter based on:
+          {/* instead of select this way we can use select-react library for select option */}
            <div>
             <select onChange={changeHandler} value={value}>
                 <option value="">All</option>
