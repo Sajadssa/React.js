@@ -14,7 +14,8 @@ const Filter = () => {
         <div>
             
           filter based on:
-          {/* instead of select this way we can use select-react library for select option */}
+          {/* instead of select this way we can use select-react library for select option
+          im so tired and tomarrow will be coutinue */}
            <div>
             <select onChange={changeHandler} value={value}>
                 <option value="">All</option>
