@@ -1,0 +1,21 @@
+.filter{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50rem;
+   margin:.5rem auto;
+   font-weight: bold;
+   font-size: 16px;
+   color: teal;
+   gap: -3rem;
+
+}
+ 
+.select{
+    padding: .8rem;
+    color: rebeccapurple;
+    font-size: 15px;
+     font-weight: bold;
+    width: 200px;
+    
+}

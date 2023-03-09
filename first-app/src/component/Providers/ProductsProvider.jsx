@@ -73,15 +73,22 @@ import {productsData} from "./../db/Products";
       case "remove":
         const filterProducts = state.filter((p) => p.id !== action.id);
         return (filterProducts);
-      // create new action with type filter
-      case "filter": {
-     
-        console.log(action.event.target.value);
-        const updatedProducts=productsData.filter(p => p.category.indexOf(action.event.target.value)>=0) 
-        return updatedProducts;
+        // create new action with type filter
+        case "filter": {
+        const value = action.selectedOption.value;
+        if (value === "") {
+          return productsData;
+       
+        }
+        else {
+          
+          console.log(value);
+          const updatedProducts=productsData.filter(p => p.category.indexOf(value)>=0) 
+          return updatedProducts;
+        }
       }
-        default:
-        return state;
+      default:
+      return state;
   
     
   }
