@@ -1,7 +1,8 @@
 import React, { useReducer } from "react";
 import { useContext } from "react";
 // import fake data from api
-import {productsData} from "./../db/Products";
+import { productsData } from "./../db/Products";
+import _ from 'lodash';
 //1.create context object
   const ProductContext = React.createContext();
 //add new context for setState count or setCount
@@ -87,6 +88,48 @@ import {productsData} from "./../db/Products";
           return updatedProducts;
         }
       }
+      case "sort": {
+        const products = [...state];
+        const value = action.selectedOption.value;
+        if (value === "lowest") {
+          
+          // sort by price
+          //first one clone from products because sort is mutated
+        return  _.orderBy(products, ['price'], ['asc']); // Use Lodash to sort array by 'price asc'
+
+        }
+        //   const sortProducts=products.sort((a, b) => {
+        //     if (a.price > b.price) {
+        //       return 1;
+        //     }
+        //     if (a.price < b.price) {
+        //       return -1;
+        //     }
+        //     return 0;
+        //   });
+        //   return sortProducts;
+        // }
+        else {
+          return _.orderBy(products, ['price'], ['desc']); // Use Lodash to sort array by 'price desc'
+          
+        }
+          // const products = [...state];
+          // const sortProducts = products.sort((a, b) => {
+          //   if (a.price < b.price) {
+          //     return 1;
+          //   }
+          //   if (a.price > b.price) {
+          //     return -1;
+          //   }
+          //   return 0;
+          // });
+          // return sortProducts;
+          
+        }
+      
+
+
+        
       default:
       return state;
   
