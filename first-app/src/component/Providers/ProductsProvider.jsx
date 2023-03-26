@@ -99,6 +99,7 @@ import _ from 'lodash';
 
         }
         //   const sortProducts=products.sort((a, b) => {
+        
         //     if (a.price > b.price) {
         //       return 1;
         //     }

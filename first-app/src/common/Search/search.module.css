@@ -1,0 +1,23 @@
+.formControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  height: 174px;
+}
+
+.formControl input {
+  padding: 12px;
+
+  color: darkslateblue;
+  font-weight: bold;
+  outline: none;
+  width: 300px;
+  border-radius: 5px;
+  border-style: none;
+  border: 2px solid #9e9ca3;
+}
+.formControl input:focus {
+  border: 2px solid #7655db;
+}

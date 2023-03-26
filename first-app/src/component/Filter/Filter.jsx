@@ -1,7 +1,7 @@
 import { UseProductsActions } from "../Providers/ProductsProvider";
 import { useState } from 'react';
-import Select from 'react-select';
 import styles from '../Filter/filter.module.css'
+import SelectComponent from "../../common/Select/SelectComponent";
 
 const Filter = () => {
    const options = [
@@ -44,23 +44,36 @@ const Filter = () => {
     return ( 
         <div className={styles.filter}>
             
-          filter based on:
+          {/* filter based on: */}
           {/* instead of select this way we can use select-react library for select option
           im so tired and tomarrow will be coutinue */}
-          <Select className={styles.selectContainer}
+          {/* <Select className={styles.selectContainer}
              value={value}
              onChange={changeHandler}
              options={options}
-          />
-          
+          /> */}
             {/* <select onChange={changeHandler} value={value}>
                 <option value="">All</option>
                 <option value="mouse">Mouse</option>
                 <option value="monitor">Monitor</option>
                 <option value="webcam">webcam</option>
                 <option value="microphone">microphone</option>
-            </select> */}
-
+               </select> */}
+          <SelectComponent
+             title="sort by Category:"
+             value={value}
+             onChange={changeHandler}
+             options={options}
+               
+               />
+          <SelectComponent
+             title="sort by price:"
+             value={sort}
+             onChange={sortHandler}
+             options={sortoptions}
+               
+               />
+{/* 
          <div className={styles.selectContainer}>
              <span>sort</span>
           
@@ -69,7 +82,7 @@ const Filter = () => {
                onChange={sortHandler}
                options={sortoptions}
             />
-         </div>
+         </div> */}
            </div>
 
 

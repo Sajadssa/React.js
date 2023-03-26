@@ -29,6 +29,7 @@ import CounterOne from "./component/Context/CounterOne";
 import CountReducer from "./component/Reducer/CountReducer";
 import ProductProvider, { UseProducts, UseProductsActions } from "./component/Providers/ProductsProvider";
 import Filter from "./component/Filter/Filter";
+import SearchBar from "./common/Search/Search";
 
 export const UserContext = React.createContext();
 export const WebsiteContext = React.createContext();
@@ -372,6 +373,7 @@ const App = () => {
 
       <ProductProvider>
       <Navbar  />
+      <SearchBar/>
       <Filter/>
           <ProductList
             // products={products}
