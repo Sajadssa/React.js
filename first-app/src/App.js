@@ -373,8 +373,8 @@ const App = () => {
 
       <ProductProvider>
       <Navbar  />
-      <SearchBar/>
       <Filter/>
+     
           <ProductList
             // products={products}
             // onRemove={removeHandler}

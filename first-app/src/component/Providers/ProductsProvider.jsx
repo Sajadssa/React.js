@@ -88,46 +88,35 @@ import _ from 'lodash';
           return updatedProducts;
         }
       }
+     
       case "sort": {
-        const products = [...state];
         const value = action.selectedOption.value;
+        const products = [...state];
         if (value === "lowest") {
-          
-          // sort by price
-          //first one clone from products because sort is mutated
-        return  _.orderBy(products, ['price'], ['asc']); // Use Lodash to sort array by 'price asc'
+          return _.orderBy(products, ['price'], ['asc']); // Use Lodash to sort array by 'price asc
+        }
+        else {
+          return _.orderBy(products, ['price'], ['desc']); // Use Lodash to sort array by 'price desc
+        }
+      }
+      case "search": { 
+      
+        const value = action.event.target.value;
+        if (value === "") {
+          return state;
+
+
 
         }
-        //   const sortProducts=products.sort((a, b) => {
-        
-        //     if (a.price > b.price) {
-        //       return 1;
-        //     }
-        //     if (a.price < b.price) {
-        //       return -1;
-        //     }
-        //     return 0;
-        //   });
-        //   return sortProducts;
-        // }
         else {
-          return _.orderBy(products, ['price'], ['desc']); // Use Lodash to sort array by 'price desc'
+
+          console.log(value);
+          const filterProducts = state.filter((p) => p.title.toLowerCase().includes(value.toLowerCase()));
+          return filterProducts;
           
         }
-          // const products = [...state];
-          // const sortProducts = products.sort((a, b) => {
-          //   if (a.price < b.price) {
-          //     return 1;
-          //   }
-          //   if (a.price > b.price) {
-          //     return -1;
-          //   }
-          //   return 0;
-          // });
-          // return sortProducts;
-          
-        }
-      
+        
+      }
 
 
         
